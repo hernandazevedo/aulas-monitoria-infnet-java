@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="configTestMock.xsd" activeTestCaseName="Cenario 1">
+	<!-- - certificação de TV - retornando tudo ok  -->
+	<testCase name="Cenario 1">
+		<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+			<atributoSimples valor="true" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento[]" metodo="setEquipamentosInstalados">
+				<!-- Se precisar, colocar mais equipamentos -->
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="HOME-GATEWAY" metodo="setTipo"/>
+					<atributoSimples valor="serialinst1" metodo="setSerial"/>
+					<atributoSimples valor="macinst1" metodo="setMacaddress"/>
+					<atributoSimples valor="modelo1" metodo="setModelo"/>
+				</atributoComplexo>	
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+					<atributoSimples valor="serialinst2" metodo="setSerial"/>
+					<atributoSimples valor="macinst2" metodo="setMacaddress"/>
+					<atributoSimples valor="modelo2" metodo="setModelo"/>
+				</atributoComplexo>	
+			</atributoComplexo>
+		</atributoComplexo>
+	</testCase>
+	<!-- - certificação de TV - retornando não ok na rede (ADSL)  -->
+	<testCase name="Cenario 2">
+		<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+			<atributoSimples valor="false" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.GpsAcaoDTO[]" metodo="setListAcoes">
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.GpsAcaoDTO">
+					<atributoSimples valor="true" metodo="setAtiva" classe="java.lang.Boolean"/>
+					<atributoSimples valor="Nome do atualizador" metodo="setAtualizadoPor" />
+					<atributoSimples valor="true" metodo="setAutomatica" classe="java.lang.Boolean"/>
+					<atributoSimples valor="Nome do BeanAcao" metodo="setBeanAcao" />
+					<atributoSimples valor="Nome do criador" metodo="setCriadoPor" />
+					<atributoSimples valor="2011-31-02 00:00:00" metodo="setDataAtualizacao" classe="java.util.Date"/>
+					<atributoSimples valor="2011-31-02 00:00:00" metodo="setDataCriacao" classe="java.util.Date"/>
+					<atributoSimples valor="Nome do criador" metodo="setDescricao" />
+					<atributoSimples valor="true" metodo="setExecucaoOk" classe="java.lang.Boolean"/>
+					<atributoSimples valor="1" metodo="setIdRelResultadoAtendimento" classe="java.lang.Long"/>
+					<atributoSimples valor="Nome" metodo="setNome" />
+					<atributoSimples valor="Obs" metodo="setObservacao" />
+					<atributoSimples valor="1" metodo="setResultadoAcao" classe="java.lang.Integer"/>
+					<atributoSimples valor="1" metodo="setRowID" classe="java.lang.Integer"/>
+				</atributoComplexo>
+			</atributoComplexo>
+		</atributoComplexo>
+	</testCase>
+	<!-- - certificação de TV - retornando não ok na TV  -->
+	<testCase name="Cenario 3">
+		<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+			<atributoSimples valor="false" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento[]" metodo="setEquipamentosInstalados">
+				<!-- Se precisar, colocar mais equipamentos -->
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="HOME-GATEWAY" metodo="setTipo"/>
+					<atributoSimples valor="serialinst1" metodo="setSerial"/>
+					<atributoSimples valor="macinst1" metodo="setMacaddress"/>
+					<atributoSimples valor="modelo1" metodo="setModelo"/>
+				</atributoComplexo>	
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+					<atributoSimples valor="serialinst2" metodo="setSerial"/>
+					<atributoSimples valor="macinst2" metodo="setMacaddress"/>
+					<atributoSimples valor="modelo2" metodo="setModelo"/>
+				</atributoComplexo>	
+			</atributoComplexo>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento[]" metodo="setEquipamentosFaltantes">
+			<!-- Se precisar, colocar mais equipamentos -->
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="HOME-GATEWAY" metodo="setTipo"/>
+					<atributoSimples valor="serialfalt1" metodo="setSerial"/>
+					<atributoSimples valor="macfaltt1" metodo="setMacaddress"/>
+					<atributoSimples valor="modelofalt1" metodo="setModelo"/>
+				</atributoComplexo>	
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+					<atributoSimples valor="serialfalt2" metodo="setSerial"/>
+					<atributoSimples valor="macifalt2" metodo="setMacaddress"/>
+					<atributoSimples valor="modelofalt2" metodo="setModelo"/>
+				</atributoComplexo>	
+			</atributoComplexo>
+		</atributoComplexo>
+	</testCase>
+	<!-- - certificação de TV - retornando não ok com nro de eqptos instalados  -->
+	<testCase name="Cenario 4.1">
+		<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+			<atributoSimples valor="false" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento[]" metodo="setEquipamentosFaltantes">
+				<!-- Se precisar, colocar mais equipamentos -->
+					<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+						<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+						<atributoSimples valor="modelofalt" metodo="setSerial"/>
+						<atributoSimples valor="modelofalt" metodo="setMacaddress"/>
+						<atributoSimples valor="modelofalt" metodo="setModelo"/>
+					</atributoComplexo>	
+					<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+						<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+						<atributoSimples valor="modelofalt2" metodo="setSerial"/>
+						<atributoSimples valor="modelofalt2" metodo="setMacaddress"/>
+						<atributoSimples valor="modelofalt2" metodo="setModelo"/>
+					</atributoComplexo>
+				</atributoComplexo>
+		</atributoComplexo>
+	</testCase>
+	<!-- - certificação retornando ok  -->
+	<testCase name="Cenario 4.2">
+		<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+			<atributoSimples valor="true" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento[]" metodo="setEquipamentosInstalados">
+			<!-- Se precisar, colocar mais equipamentos -->
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+					<atributoSimples valor="modeloinst" metodo="setSerial"/>
+					<atributoSimples valor="modeloinst" metodo="setMacaddress"/>
+					<atributoSimples valor="modeloinst" metodo="setModelo"/>
+				</atributoComplexo>	
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+					<atributoSimples valor="modelofalt2" metodo="setSerial"/>
+					<atributoSimples valor="modelofalt2" metodo="setMacaddress"/>
+					<atributoSimples valor="modelofalt2" metodo="setModelo"/>
+				</atributoComplexo>
+			</atributoComplexo>
+		</atributoComplexo>
+	</testCase>
+	<!-- - certificação de TV - retornando não ok com nro de eqptos instalados -->
+	<testCase name="Cenario 5.1">
+	<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+		<atributoSimples valor="false" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento[]" metodo="setEquipamentosFaltantes">
+			<!-- Se precisar, colocar mais equipamentos -->
+					<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+						<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+						<atributoSimples valor="modelofalt" metodo="setSerial"/>
+						<atributoSimples valor="modelofalt" metodo="setMacaddress"/>
+						<atributoSimples valor="modelofalt" metodo="setModelo"/>
+					</atributoComplexo>	
+					<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+						<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+						<atributoSimples valor="modelofalt2" metodo="setSerial"/>
+						<atributoSimples valor="modelofalt2" metodo="setMacaddress"/>
+						<atributoSimples valor="modelofalt2" metodo="setModelo"/>
+					</atributoComplexo>
+				</atributoComplexo>
+			</atributoComplexo>
+	</testCase>
+	<!-- - certificação retornando ok  -->
+	<testCase name="Cenario 5.2">
+		<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+			<atributoSimples valor="true" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento[]" metodo="setEquipamentosInstalados">
+			<!-- Se precisar, colocar mais equipamentos -->
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+					<atributoSimples valor="modeloinst" metodo="setSerial"/>
+					<atributoSimples valor="modeloinst" metodo="setMacaddress"/>
+					<atributoSimples valor="modeloinst" metodo="setModelo"/>
+				</atributoComplexo>	
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.Equipamento">
+					<atributoSimples valor="SET-TOP-BOX" metodo="setTipo"/>
+					<atributoSimples valor="modelofalt2" metodo="setSerial"/>
+					<atributoSimples valor="modelofalt2" metodo="setMacaddress"/>
+					<atributoSimples valor="modelofalt2" metodo="setModelo"/>
+				</atributoComplexo>
+			</atributoComplexo>
+		</atributoComplexo>
+	</testCase>
+	<!-- OK na banda larga -->
+	<testCase name="Cenario 6">
+		<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.CertificarOut">
+			<atributoSimples valor="true" metodo="setCertificacaoOK" classe="java.lang.Boolean"/>
+			<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.GpsAcaoDTO[]" metodo="setListAcoes">
+				<atributoComplexo classe="com.gvt.www.ws.eai.certificacaoweb.certificar.GpsAcaoDTO">
+					<atributoSimples valor="true" metodo="setExecucaoOk" classe="java.lang.Boolean"/>
+					<atributoSimples valor="Acao 1" metodo="setNome" />
+				</atributoComplexo>	
+			</atributoComplexo>
+		</atributoComplexo>
+	</testCase>
+</test>

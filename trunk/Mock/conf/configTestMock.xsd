@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="qualified">
+	
+	<xs:complexType name="tAtributo">
+		<!-- <xs:attribute name="metodo" type="xs:string" />  -->
+		<xs:attribute name="valor" type="xs:string" use="optional" />
+		<xs:attribute name="classe" type="xs:string" use="optional" />
+		<xs:attribute name="metodo" type="xs:string" use="optional" />
+	</xs:complexType>
+	
+	<xs:complexType name="tObjeto">
+		<xs:sequence>
+			<xs:element name="atributoSimples" type="tAtributo" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="atributoComplexo" type="tObjeto" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="classe" type="xs:string" />
+		<xs:attribute name="metodo" type="xs:string" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="tTestCase">
+	 <xs:sequence>
+		<xs:element name="atributoSimples" type="tAtributo" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="atributoComplexo" type="tObjeto" minOccurs="0"
+				maxOccurs="unbounded" />
+	</xs:sequence>
+		<!-- <xs:sequence>
+			<xs:element name="parametro" type="tObjeto" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="retorno" type="tObjeto" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+		 -->
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="tTest">
+		<xs:sequence>
+			<xs:element name="testCase" type="tTestCase" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="activeTestCaseName" type="xs:string" />
+	</xs:complexType>
+
+	<xs:element name="test" type="tTest" />
+</xs:schema>
