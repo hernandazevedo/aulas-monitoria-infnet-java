@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="configTestMock.xsd" activeTestCaseName="Cenario 1">
+	<!-- - certificação de TV - retornando tudo ok  -->
+	
+	<testCase name="Cenario 1">
+		<atributoComplexo classe="com.pessoa.Pessoa">
+			<atributoSimples valor="William Italiano" metodo="setNome" classe="java.lang.String"/>
+			<atributoComplexo classe="com.pessoa.Pessoa" metodo="setPessoa">
+			    <atributoSimples valor="jose" metodo="setNome" classe="java.lang.String" />			    
+			</atributoComplexo>
+			<atributoComplexo classe="com.pessoa.Pessoa[]" metodo="setListaDeContatos">
+				<atributoComplexo classe="com.pessoa.Pessoa">
+					<atributoSimples valor="William Italiano 1" metodo="setNome" classe="java.lang.String"/>
+				</atributoComplexo>
+				<atributoComplexo classe="com.pessoa.Pessoa">
+					<atributoSimples valor="William Italiano 2" metodo="setNome" classe="java.lang.String"/>
+				</atributoComplexo>
+				<atributoComplexo classe="com.pessoa.Pessoa">
+					<atributoSimples valor="William Italiano 3" metodo="setNome" classe="java.lang.String"/>
+				</atributoComplexo>
+				<atributoComplexo classe="com.pessoa.Pessoa">
+					<atributoSimples valor="William Italiano 4" metodo="setNome" classe="java.lang.String"/>
+				</atributoComplexo>				
+			</atributoComplexo>		
+		</atributoComplexo>
+	</testCase>
+
+</test>
