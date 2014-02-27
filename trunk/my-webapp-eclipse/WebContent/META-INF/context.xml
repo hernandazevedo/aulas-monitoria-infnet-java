@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Manager pathname="" /> <!-- disables storage of sessions across restarts -->
+	<Resource name="BeanManager" auth="Container"
+		type="javax.enterprise.inject.spi.BeanManager" factory="org.jboss.weld.resources.ManagerObjectFactory" />
+	
+	<Resource name="jdbc/mywebapp" 
+		  auth="Container" 
+		  type="javax.sql.DataSource" 
+		  maxActive="5" 
+		  initialSize="1" 
+		  minIdle="1" maxIdle="3" 
+		  maxWait="5000" removeAbandoned="true" 
+		  removeAbandonedTimeout="300" logAbandoned="true" 
+		  username="root" password="root" driverClassName="org.gjt.mm.mysql.Driver" 
+		  url="jdbc:mysql://localhost:3306/test" description="Base de dados do VisitanteSeap"
+		  
+		  validationQuery="SELECT 1 FROM DUAL"
+          validationInterval="30000"
+          testOnBorrow="true"
+		  />
+</Context>

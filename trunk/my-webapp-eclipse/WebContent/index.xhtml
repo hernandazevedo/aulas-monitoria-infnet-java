@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<ui:define name="title">Sample Configuration</ui:define>
+	<ui:define name="head">Sample Configuration</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<p>
+
+				<h:commandButton value="start conversation"
+					action="#{fatherConversation.startConversation}" />
+
+				<br />
+				
+			</p>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
