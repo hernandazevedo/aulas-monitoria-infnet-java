@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:test="http://example.com/test"	
+    xmlns:p="http://primefaces.org/ui"  
+	template="template.xhtml">
+
+	<ui:define name="title">Sample Configuration</ui:define>
+	<ui:define name="head">Sample Configuration</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<p>
+
+				
+				<br />
+				<p:commandButton value="Sumir estilo" update="idAqui" >
+					<f:setPropertyActionListener value="display: none;" target="#{componentBeanTest.style}" />
+				</p:commandButton>
+				
+				<p:commandButton value="Sumir" update="panelSumir" >
+					<f:setPropertyActionListener value="false" target="#{componentBeanTest.buttonRendered}" />
+				</p:commandButton>	
+				
+				<h:panelGroup id="panelSumir" layout="block">
+				<test:customComponent componenteId="idAquiButton" listenerAction="#{componentBeanTest.testeMetodo}"  styleClass="uhhClassBOlada" style="#{componentBeanTest.style}" id="idAqui" rendered="#{componentBeanTest.buttonRendered}" value="value" update="hora" />
+				<test:customComponent componenteId="idAquiButton2" listenerAction="#{componentBeanTest.testeMetodo('Hernand')}"  styleClass="uhhClassBOlada" style="#{componentBeanTest.style}" id="idAqui2" rendered="#{componentBeanTest.buttonRendered}" value="value" update="hora" />
+				
+				<h:outputText id="hora" value="#{session.lastAccessedTime}">
+				      <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss" type="date" />
+				</h:outputText>
+				</h:panelGroup>
+			</p>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
