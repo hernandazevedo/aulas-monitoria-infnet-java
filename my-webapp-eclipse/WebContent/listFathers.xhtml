@@ -4,7 +4,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
-
+	<ui:define name="metadata">
+	 	<f:metadata>
+			<f:event type="preRenderView" listener="#{fatherConversation.beginConversation}"/>
+		</f:metadata>
+	</ui:define>
 	<ui:define name="title">Father list</ui:define>
 	<ui:define name="head">Father list</ui:define>
 	<ui:define name="content">

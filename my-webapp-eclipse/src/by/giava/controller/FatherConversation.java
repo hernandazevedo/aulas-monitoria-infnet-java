@@ -3,7 +3,6 @@ package by.giava.controller;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
@@ -15,14 +14,16 @@ import by.giava.repository.FatherRepository;
 
 @Named
 @ConversationScoped
-public class FatherConversation implements Serializable {
+public class FatherConversation extends ConverSationController implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String VIEW = "/viewFather.xhtml";
 	public static final String LIST = "/listFathers.xhtml";
 	private static final String MOD = "/addModFather.xhtml";
 
-	@Inject
-	private Conversation conversation;
 
 	@Inject
 	FatherRepository fatherRepository;
@@ -35,14 +36,14 @@ public class FatherConversation implements Serializable {
 	}
 
 	public String startConversation() {
-		System.out.println("START CONVERSATION");
-		conversation.begin();
+//		System.out.println("START CONVERSATION");
+//		conversation.begin(); vai ser iniciada na pagina
 		return LIST;
 	}
 
 	public String stopConversation() {
 		System.out.println("STOP CONVERSATION");
-		conversation.end();
+		endConversation();
 		return LIST;
 	}
 
