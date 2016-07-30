@@ -24,9 +24,16 @@
 					<f:setPropertyActionListener value="false" target="#{componentBeanTest.buttonRendered}" />
 				</p:commandButton>	
 				
+				
+				
 				<h:panelGroup id="panelSumir" layout="block">
 				<test:customComponent componenteId="idAquiButton" listenerAction="#{componentBeanTest.testeMetodo}"  styleClass="uhhClassBOlada" style="#{componentBeanTest.style}" id="idAqui" rendered="#{componentBeanTest.buttonRendered}" value="value" update="hora" />
 				<test:customComponent componenteId="idAquiButton2" listenerAction="#{componentBeanTest.testeMetodo('Hernand')}"  styleClass="uhhClassBOlada" style="#{componentBeanTest.style}" id="idAqui2" rendered="#{componentBeanTest.buttonRendered}" value="value" update="hora" />
+				
+				<p:autoComplete value="#{autoCompleteBean.selectedEntity}" completeMethod="#{autoCompleteBean.autoComplete}" 
+			        var="entity" itemValue="#{entity}" itemLabel="#{entity.value}">
+			        <o:converter converterId="omnifaces.ListConverter" list="#{autoCompleteBean.availableEntities}" />
+			    </p:autoComplete>
 				
 				<h:outputText id="hora" value="#{session.lastAccessedTime}">
 				      <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss" type="date" />

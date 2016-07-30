@@ -1,6 +1,8 @@
 package by.giava.model;
 
-public class Theme {
+import converters.interfaces.ListConvertable;
+
+public class Theme implements ListConvertable{
 	 
     private int id;   
     private String displayName;  
@@ -14,10 +16,10 @@ public class Theme {
         this.name = name;
     }
  
-    public int getId() {
+    public Integer getId() {
         return id;
     }
- 
+    
     public void setId(int id) {
         this.id = id;
     }

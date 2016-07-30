@@ -56,22 +56,20 @@
 					<p:ajax event="itemSelect"
 						listener="#{autoCompleteView.onItemSelect}" update="msgs" />
 				</p:autoComplete>
-
 				<p:outputLabel value="Pojo:" for="themePojo" />
-				<p:autoComplete id="themePojo" dropdown="true" value="#{autoCompleteView.theme1}"
+				<p:autoComplete id="themePojo" dropdown="true" value="#{autoCompleteView.theme5}"
 					completeMethod="#{autoCompleteView.completeTheme}" var="theme"
 					itemLabel="#{theme.displayName}" itemValue="#{theme}"					
 					 forceSelection="true" >
 					 <o:converter converterId="omnifaces.ListConverter" list="#{autoCompleteView.allThemes}" />
 				 </p:autoComplete>
-
 				<p:outputLabel value="SelectOneMenu:" for="selectOneMenu" />
 				
 				<h:selectOneMenu id="selectOneMenu" value="#{autoCompleteView.theme1}" >
-					<f:selectItem itemLabel="Selecione"  noSelectionOption="true"/> 
+					<f:selectItem itemLabel="Selecione"  noSelectionOption="true" /> 
 		   			<f:selectItems value="#{autoCompleteView.allThemes}" var="f" 
-				   			itemLabel="#{theme.displayName}" itemValue="#{theme}" />
-					<o:converter converterId="omnifaces.ListConverter" list="#{autoCompleteView.allThemes}" />				
+				   			 itemValue="#{theme}" />
+					<o:converter converterId="converters.ListConverterById" list="#{autoCompleteView.allThemes}" />				
 				</h:selectOneMenu>
 				
 				<p:outputLabel value="Custom Content:" for="themeCustom" />

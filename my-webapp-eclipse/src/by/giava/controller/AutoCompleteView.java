@@ -35,6 +35,7 @@ public class AutoCompleteView implements Serializable{
     private Theme theme2;
     private Theme theme3;
     private Theme theme4;
+    private Theme theme5;
     private List<Theme> selectedThemes;
     private List<Theme> allThemes;
     @Inject
@@ -192,4 +193,10 @@ public class AutoCompleteView implements Serializable{
     public char getThemeGroup(Theme theme) {
         return theme.getDisplayName().charAt(0);
     }
+    public Theme getTheme5() {
+		return theme5;
+	}
+    public void setTheme5(Theme theme5) {
+		this.theme5 = theme5;
+	}
 }
