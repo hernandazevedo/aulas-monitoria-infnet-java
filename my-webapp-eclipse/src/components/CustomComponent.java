@@ -4,39 +4,48 @@ import java.io.IOException;
 
 import javax.el.MethodExpression;
 import javax.faces.component.FacesComponent;
-import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
 
+import org.primefaces.component.api.Widget;
 import org.primefaces.component.commandbutton.CommandButton;
 
 @FacesComponent("components.CustomComponent")
-public class CustomComponent extends UIComponentBase implements ActionListener {
+public class CustomComponent extends CommandButton implements ActionListener ,Widget{
  
-    @Override
-    public String getFamily() {        
-        return "components.CustomComponent";
-    }
- 
-    public CustomComponent() {
-//    	UIViewRoot root = FacesContext.getCurrentInstance().getViewRoot();
-//    	root.subscribeToEvent(PreRenderViewEvent.class, this);
-	}
+	public static final String COMPONENT_FAMILY = "components.CustomComponent.components";
     
-    @Override
-    public void encodeBegin(FacesContext context) throws IOException {
-		super.encodeBegin(context);
-		
-		iniciarHtmlEstatico(context);
-		
-		if(!getFacesContext().isPostback()){
-			adicionarConteudoDinamico();
-		}
-    }
+	
+	@Override
+	public String getFamily() {
+		// TODO Auto-generated method stub
+		return COMPONENT_FAMILY;
+	}
+	
+	 protected static enum PropertyKeys {
+	        acaoTag, codigoFuncionalidade;
+	    }
+	
+	public String getCodigoFuncionalidade() {
+		return (String) this.getStateHelper().eval(PropertyKeys.codigoFuncionalidade, null);
+	}
 
+	public void setCodigoFuncionalidade(String codigoFuncionalidade) {
+		this.getStateHelper().put(PropertyKeys.codigoFuncionalidade, codigoFuncionalidade);
+	}
+	 
+	public String getAcaoTag() {
+		return (String) this.getStateHelper().eval(PropertyKeys.acaoTag, null);
+	}
+
+	public void setAcaoTag(String acaoTag) {
+		this.getStateHelper().put(PropertyKeys.acaoTag, acaoTag);
+	}
+
+	
 	private void iniciarHtmlEstatico(FacesContext context) throws IOException {
 		String style = (String) getAttributes().get("style");
 		String styleClass = (String) getAttributes().get("styleClass");
@@ -108,7 +117,7 @@ public class CustomComponent extends UIComponentBase implements ActionListener {
 	        	
 	        	if(update != null)
 	        	commandButton.setUpdate(update);
-	        	
+	        	getChildren().clear();
 	            getChildren().add(commandButton);
 	        }
 	}

@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+		.sispagIcon {
+                display: none;                
+         }
+		.sispagIconClass
+		{
+						border:0 !important;;
+						box-shadow:none !important;
+		}		
+		.sispagIconClass:active{
+						outline:none;
+		}		
+		.sispagIconClass:focus{
+						outline:none; 
+		}

@@ -1,16 +1,14 @@
 package by.giava.controller;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.enterprise.context.Conversation;
-import javax.enterprise.context.ConversationScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import by.giava.model.Father;
 import by.giava.repository.FatherRepository;
@@ -55,6 +53,26 @@ public class ComponentBeanTest implements Serializable {
 //		return LIST;
 //	}
 
+	public DataModel<Father> getFathers(){
+		
+		Father f1 = new Father();
+		f1.setId(1L);
+		f1.setName("nome1");
+		
+		Father f2 = new Father();
+		f2.setId(2L);
+		f2.setName("nome2");
+		
+		Father f3 = new Father();
+		f3.setId(3L);
+		f3.setName("nome3");
+		
+		List<Father> lista = Arrays.asList(new Father[]{f1,f2,f3});
+		model = new ListDataModel<Father>(lista);
+		
+		return model; 
+	}
+	
 	public Father getFather() {
 		return father;
 	}

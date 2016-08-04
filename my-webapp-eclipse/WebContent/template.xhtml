@@ -4,11 +4,20 @@
 <html xmlns:c="http://java.sun.com/jstl/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui">
 	<ui:insert name="metadata"/>
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="resources/css/default.css" rel="stylesheet" type="text/css" />
+	
+	
+	<o:conditionalComment if="lt IE 9">
+		<link href="resources/css/default_ie.css" rel="stylesheet" type="text/css" />
+	</o:conditionalComment>
+	
+	<script type="text/javascript" src="resources/js/jquery.backgroundSize.js" />
+	
 	<title><ui:insert name="title">Default Title</ui:insert>
 	</title>
 </h:head>
