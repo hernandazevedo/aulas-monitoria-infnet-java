@@ -12,30 +12,35 @@
 	<ui:define name="head">Sample Configuration</ui:define>
 	<ui:define name="content">
 		<h:form>
+			<p>
 
-
-				<br />
 				
-				<p:dataTable var="f" value="#{componentBeanTest.fathers}">
-				    <p:column headerText="Id">
-				        <h:outputText value="#{f.id}" />
-				    </p:column>
-				 
-				    <p:column headerText="Name">
-				        <h:outputText value="#{f.name}" />
-				    </p:column>
-				 
-			       <p:column headerText="Color">
-			       		
-						<test:customComponent action="#{componentBeanTest.testeMetodo}"  codigoFuncionalidade="553" acaoTag="tag_exemplo_acao" style="text-decoration: none;" styleClass="uhhClassBOlada"  >
-							<f:setPropertyActionListener value="1" target="#{componentBeanTest.style}"></f:setPropertyActionListener>
-						</test:customComponent>        
-				    </p:column>
-				</p:dataTable>
-
+				<br />
+				<p:commandButton value="Sumir estilo" update="idAqui" >
+					<f:setPropertyActionListener value="display: none;" target="#{componentBeanTest.style}" />
+				</p:commandButton>
+				
+				<p:commandButton value="Sumir" update="panelSumir" >
+					<f:setPropertyActionListener value="false" target="#{componentBeanTest.buttonRendered}" />
+				</p:commandButton>	
+				
+				
+				
+				<h:panelGroup id="panelSumir" layout="block">
+				<test:customComponent componenteId="idAquiButton" listenerAction="#{componentBeanTest.testeMetodo}"  styleClass="uhhClassBOlada" style="#{componentBeanTest.style}" id="idAqui" rendered="#{componentBeanTest.buttonRendered}" value="value" update="hora" />
+				<test:customComponent componenteId="idAquiButton2" listenerAction="#{componentBeanTest.testeMetodo('Hernand')}"  styleClass="uhhClassBOlada" style="#{componentBeanTest.style}" id="idAqui2" rendered="#{componentBeanTest.buttonRendered}" value="value" update="hora" />
+				
+				<p:autoComplete value="#{autoCompleteBean.selectedEntity}" completeMethod="#{autoCompleteBean.autoComplete}" 
+			        var="entity" itemValue="#{entity}" itemLabel="#{entity.value}">
+			        <o:converter converterId="omnifaces.ListConverter" list="#{autoCompleteBean.availableEntities}" />
+			    </p:autoComplete>
+				
+				<h:outputText id="hora" value="#{session.lastAccessedTime}">
+				      <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss" type="date" />
+				</h:outputText>
+				</h:panelGroup>
+			</p>
 		</h:form>
-		
-		
 	</ui:define>
 
 </ui:composition>
